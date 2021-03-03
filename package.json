@@ -1,0 +1,24 @@
+{
+  "name": "JS-Weather-app",
+  "version": "1.0.0",
+  "description": "This repository contains source of a weather app built using JavaScript, HTML, and CSS.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SajjadAhmad14/JS-Weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SajjadAhmad14/JS-Weather-app/issues"
+  },
+  "homepage": "https://github.com/SajjadAhmad14/JS-Weather-app#readme",
+  "devDependencies": {
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0"
+  }
+}
