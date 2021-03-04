@@ -1,2 +1,2 @@
-import { hitApiandReturn } from './weatherData'
-hitApiandReturn('Abbottabad');
+import { getWeatherData } from './weatherData'
+getWeatherData('Lahore');
