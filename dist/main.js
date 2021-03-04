@@ -7,15 +7,19 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getWeatherData": () => (/* binding */ getWeatherData)
+/* harmony export */   "processweatherData": () => (/* binding */ processweatherData)
 /* harmony export */ });
-async function getWeatherData(location) {
-  const key = "ab1bb349d168e0577aa7f9a8a76025a4"
+  const getWeatherData = async(location)=> {
+  const key = "ab1bb349d168e0577aa7f9a8a76025a4";
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`
-  const weatherData = await fetch(url)
-  const response = await weatherData.json();
-  console.log(response);
-}
+  const weatherData = await fetch(url);
+  return weatherData;
+};
+const processweatherData = async(location) => {
+  const response = await getWeatherData(location);
+  const data = await response.json();
+  return data
+};
 
 
 /***/ })
@@ -80,7 +84,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _weatherData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
-(0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.getWeatherData)('Lahore');
+console.log((0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.processweatherData)('Islamabad'));
 })();
 
 /******/ })()

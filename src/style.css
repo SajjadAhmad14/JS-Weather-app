@@ -1,0 +1,35 @@
+@import './reset.css';
+
+body {
+  background-color:#407DE6;
+  height: 100%;
+  padding: 10% 0;
+}
+
+main {
+  width: 50%;
+  min-height: 40vh;
+  border-radius: 20px;
+  margin: auto;
+  background-color: #4C8CFC;
+  padding: 10% 0;
+}
+.app-branding {
+  margin-top: -50px;
+}
+.app-branding img {
+  width: 15%;
+  height: 25%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#city {
+  padding: 5px;
+}
+#search-city {
+  padding: 5px;
+}

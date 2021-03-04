@@ -1,2 +1,2 @@
-import { getWeatherData } from './weatherData'
-getWeatherData('Lahore');
+import { processweatherData } from './weatherData';
+console.log(processweatherData('Islamabad'));
