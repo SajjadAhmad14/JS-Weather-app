@@ -93,6 +93,7 @@ console.log((0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.processweatherData)());
     const city = document.getElementById('city').value;
     (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.processweatherData)(city);
     form.reset();
+    
   });
 
 })();

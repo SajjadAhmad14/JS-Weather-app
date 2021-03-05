@@ -7,4 +7,5 @@ console.log(processweatherData());
     const city = document.getElementById('city').value;
     processweatherData(city);
     form.reset();
+    
   });
