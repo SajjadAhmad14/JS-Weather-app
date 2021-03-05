@@ -9,17 +9,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "processweatherData": () => (/* binding */ processweatherData)
 /* harmony export */ });
-  const getWeatherData = async(location)=> {
-  const key = "ab1bb349d168e0577aa7f9a8a76025a4";
+const getWeatherData = async (location) => {
+  const key = 'ab1bb349d168e0577aa7f9a8a76025a4';
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`
   const weatherData = await fetch(url);
   return weatherData;
 };
-const processweatherData = async(location) => {
+const processweatherData = async (location = 'Abbottabad') => {
   const response = await getWeatherData(location);
   const data = await response.json();
   return data
 };
+
 
 
 /***/ })
@@ -84,7 +85,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _weatherData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
-console.log((0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.processweatherData)('Islamabad'));
+  
+console.log((0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.processweatherData)());
+  const form = document.querySelector('form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const city = document.getElementById('city').value;
+    (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.processweatherData)(city);
+    form.reset();
+  });
+
 })();
 
 /******/ })()
