@@ -52,7 +52,10 @@ const setDefaultWeather = (obj) => {
   weatherUpdate.classList.add('center');
   weatherUpdate.setAttribute('id', 'weather-update')
   weatherUpdate.textContent = weatherInCelsius;
+  // const span = document.createElement('span');
+  // span.innerHTML = `&#8451;`;
   main.appendChild(weatherUpdate);
+  // main.appendChild(span);
 };
 
 const setWeather = (obj) => {

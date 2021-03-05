@@ -18,7 +18,8 @@ main {
   color: #fff;
 }
 .app-branding {
-  margin-top: -50px;
+  margin-top: -100px;
+  margin-bottom: 30px;
 }
 .app-branding img {
   width: 15%;
@@ -37,7 +38,16 @@ main {
   padding: 5px;
 }
 
-#city-name, #weather-update {
+.choose-city {
   margin-top: 20px;
+}
+
+#city-name {
+  margin-top: 30px;
   font-size: 30px;
+}
+
+#weather-update {
+  margin-top: 50px;
+  font-size: 100px;
 }
