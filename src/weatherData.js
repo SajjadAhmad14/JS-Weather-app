@@ -7,7 +7,43 @@ const getWeatherData = async (location) => {
 const processweatherData = async (location = 'Abbottabad') => {
   const response = await getWeatherData(location);
   const data = await response.json();
-  return data
+  return data;
 };
 
-export { processweatherData }
+const setDefaultCity = (obj) => {
+  const city = obj.name;
+  const country = obj.sys.country
+  const main = document.querySelector('main');
+  const cityName = document.createElement('h1');
+  cityName.setAttribute('id', 'city-name');
+  cityName.classList.add('center');
+  cityName.textContent = city + ", " + country;
+  main.appendChild(cityName);
+};
+
+
+const setCityName = (obj) => {
+  const city = obj.name;
+  const country = obj.sys.country;
+  const cityName = document.getElementById('city-name');
+  cityName.textContent = city + ", " + country;
+};
+
+const setDefaultWeather = (obj) => {
+  let weatherInCelsius = obj.main.temp - 273.15;
+  weatherInCelsius = Math.floor(weatherInCelsius);
+  const main = document.querySelector('main');
+  const weatherUpdate = document.createElement('h1');
+  weatherUpdate.classList.add('center');
+  weatherUpdate.setAttribute('id', 'weather-update')
+  weatherUpdate.textContent = weatherInCelsius;
+  main.appendChild(weatherUpdate);
+};
+
+const setWeather = (obj) => {
+  let weatherInCelsius = obj.main.temp - 273.15
+  weatherInCelsius = Math.floor(weatherInCelsius);
+  const weatherUpdate = document.getElementById('weather-update');
+  weatherUpdate.textContent = weatherInCelsius;
+}
+export { processweatherData, setCityName, setDefaultCity, setDefaultWeather, setWeather }

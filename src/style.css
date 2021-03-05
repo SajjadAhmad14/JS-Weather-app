@@ -1,4 +1,5 @@
 @import './reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
   background-color:#407DE6;
@@ -13,6 +14,8 @@ main {
   margin: auto;
   background-color: #4C8CFC;
   padding: 10% 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
 }
 .app-branding {
   margin-top: -50px;
@@ -32,4 +35,9 @@ main {
 }
 #search-city {
   padding: 5px;
+}
+
+#city-name, #weather-update {
+  margin-top: 20px;
+  font-size: 30px;
 }
