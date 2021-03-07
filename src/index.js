@@ -1,10 +1,11 @@
-import { processweatherData, setCityName, setDefaultCity, setDefaultWeather, setWeather } from './weatherData';
+import { additionDataFefault, additionalData, processweatherData, setCityName, setDefaultCity, setDefaultWeather, setWeather } from './weatherData';
 
 const form = document.querySelector('form');
 
 processweatherData().then((obj) => {
   setDefaultCity(obj);
   setDefaultWeather(obj);
+  additionDataFefault(obj);
 });
 
 const getLocation = (e) => {
@@ -13,6 +14,7 @@ const getLocation = (e) => {
   processweatherData(city).then((obj) => {
     setCityName(obj);
     setWeather(obj);
+    additionalData(obj);
   });
   form.reset();
 };

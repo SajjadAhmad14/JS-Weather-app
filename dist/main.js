@@ -11,7 +11,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "setCityName": () => (/* binding */ setCityName),
 /* harmony export */   "setDefaultCity": () => (/* binding */ setDefaultCity),
 /* harmony export */   "setDefaultWeather": () => (/* binding */ setDefaultWeather),
-/* harmony export */   "setWeather": () => (/* binding */ setWeather)
+/* harmony export */   "setWeather": () => (/* binding */ setWeather),
+/* harmony export */   "additionDataFefault": () => (/* binding */ additionDataFefault),
+/* harmony export */   "additionalData": () => (/* binding */ additionalData)
 /* harmony export */ });
 const getWeatherData = async (location) => {
   const key = 'ab1bb349d168e0577aa7f9a8a76025a4';
@@ -80,6 +82,46 @@ const setWeather = (obj) => {
   weatherInCelsius = Math.floor(weatherInCelsius);
   const weatherUpdate = document.getElementById('weather-update');
   weatherUpdate.textContent = weatherInCelsius;
+}
+
+const additionDataFefault = (obj) => {
+  let feelsLike = obj.main.feels_like - 273.15;
+  feelsLike = Math.floor(feelsLike);
+  let minTemp =  obj.main.temp_min - 273.15;
+  minTemp = Math.floor(minTemp);
+  const clouds = obj.weather[0].description;
+  const main = document.querySelector('main');
+  const dataContainer = document.createElement('div');
+  dataContainer.classList.add('center');
+  dataContainer.setAttribute('id', 'addition-data');
+  const feelsLikeHead = document.createElement('h1');
+  feelsLikeHead.setAttribute('id', 'feels-like');
+  const minTempHead = document.createElement('h1');
+  minTempHead.setAttribute('id', 'min-temp')
+  const cloudsHead = document.createElement('h1');
+  cloudsHead.setAttribute('id', 'clouds');
+  const degree = document.createElement('h3');
+  feelsLikeHead.textContent = 'Feels Like: ' + feelsLike + 'C |';
+  minTempHead.textContent = ' Min Temperature: ' + minTemp + 'C |';
+  cloudsHead.textContent = ' Clouds: ' + clouds;
+  dataContainer.appendChild(feelsLikeHead);
+  dataContainer.appendChild(minTempHead);
+  dataContainer.appendChild(cloudsHead);
+  main.appendChild(dataContainer);
+};
+
+const additionalData = (obj) => {
+  let feelsLike = obj.main.feels_like - 273.15;
+  feelsLike = Math.floor(feelsLike);
+  let minTemp =  obj.main.temp_min - 273.15;
+  minTemp = Math.floor(minTemp);
+  const clouds = obj.weather[0].description;
+  const feelsLikeHead = document.getElementById('feels-like');
+  const  minTempHead = document.getElementById('min-temp');
+  const cloudsHead = document.getElementById('clouds');
+  feelsLikeHead.textContent = 'Feels Like: ' + feelsLike + 'C |';
+  minTempHead.textContent = 'Min Temperature: ' + minTemp + 'C |';
+  cloudsHead.textContent = ' Clouds: ' + clouds;
 }
 
 
@@ -151,6 +193,7 @@ const form = document.querySelector('form');
 (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.processweatherData)().then((obj) => {
   (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.setDefaultCity)(obj);
   (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.setDefaultWeather)(obj);
+  (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.additionDataFefault)(obj);
 });
 
 const getLocation = (e) => {
@@ -159,6 +202,7 @@ const getLocation = (e) => {
   (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.processweatherData)(city).then((obj) => {
     (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.setCityName)(obj);
     (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.setWeather)(obj);
+    (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.additionalData)(obj);
   });
   form.reset();
 };

@@ -66,4 +66,44 @@ const setWeather = (obj) => {
   const weatherUpdate = document.getElementById('weather-update');
   weatherUpdate.textContent = weatherInCelsius;
 }
-export { processweatherData, setCityName, setDefaultCity, setDefaultWeather, setWeather }
+
+const additionDataFefault = (obj) => {
+  let feelsLike = obj.main.feels_like - 273.15;
+  feelsLike = Math.floor(feelsLike);
+  let minTemp =  obj.main.temp_min - 273.15;
+  minTemp = Math.floor(minTemp);
+  const clouds = obj.weather[0].description;
+  const main = document.querySelector('main');
+  const dataContainer = document.createElement('div');
+  dataContainer.classList.add('center');
+  dataContainer.setAttribute('id', 'addition-data');
+  const feelsLikeHead = document.createElement('h1');
+  feelsLikeHead.setAttribute('id', 'feels-like');
+  const minTempHead = document.createElement('h1');
+  minTempHead.setAttribute('id', 'min-temp')
+  const cloudsHead = document.createElement('h1');
+  cloudsHead.setAttribute('id', 'clouds');
+  const degree = document.createElement('h3');
+  feelsLikeHead.textContent = 'Feels Like: ' + feelsLike + 'C |';
+  minTempHead.textContent = ' Min Temperature: ' + minTemp + 'C |';
+  cloudsHead.textContent = ' Clouds: ' + clouds;
+  dataContainer.appendChild(feelsLikeHead);
+  dataContainer.appendChild(minTempHead);
+  dataContainer.appendChild(cloudsHead);
+  main.appendChild(dataContainer);
+};
+
+const additionalData = (obj) => {
+  let feelsLike = obj.main.feels_like - 273.15;
+  feelsLike = Math.floor(feelsLike);
+  let minTemp =  obj.main.temp_min - 273.15;
+  minTemp = Math.floor(minTemp);
+  const clouds = obj.weather[0].description;
+  const feelsLikeHead = document.getElementById('feels-like');
+  const  minTempHead = document.getElementById('min-temp');
+  const cloudsHead = document.getElementById('clouds');
+  feelsLikeHead.textContent = 'Feels Like: ' + feelsLike + 'C |';
+  minTempHead.textContent = 'Min Temperature: ' + minTemp + 'C |';
+  cloudsHead.textContent = ' Clouds: ' + clouds;
+}
+export { processweatherData, setCityName, setDefaultCity, setDefaultWeather, setWeather, additionDataFefault, additionalData}
