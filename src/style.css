@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-  background-color:#407DE6;
+  background-color: #407DE6;
   height: 100%;
   padding: 10% 0;
 }
@@ -17,10 +17,12 @@ main {
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
+
 .app-branding {
   margin-top: -100px;
   margin-bottom: 30px;
 }
+
 .app-branding img {
   width: 15%;
   height: 25%;
@@ -31,9 +33,11 @@ main {
   justify-content: center;
   align-items: center;
 }
+
 #city {
   padding: 5px;
 }
+
 #search-city {
   padding: 5px;
 }
@@ -42,12 +46,22 @@ main {
   margin-top: 20px;
 }
 
-#city-name {
+#city-container {
   margin-top: 30px;
-  font-size: 30px;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
 }
 
-#weather-update {
+#weather-container {
   margin-top: 50px;
   font-size: 100px;
+}
+
+#flag-container {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

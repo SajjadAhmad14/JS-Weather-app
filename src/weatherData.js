@@ -4,6 +4,14 @@ const getWeatherData = async (location) => {
   const weatherData = await fetch(url);
   return weatherData;
 };
+
+
+const getFlags = async (code) => {
+  const data = await fetch('https://restcountries.eu/rest/v2/all');
+  const response = await data.json();
+  return response.find(country => country.alpha2Code === code);
+}
+
 const processweatherData = async (location = 'Abbottabad') => {
   const response = await getWeatherData(location);
   const data = await response.json();
@@ -12,19 +20,30 @@ const processweatherData = async (location = 'Abbottabad') => {
 
 const setDefaultCity = (obj) => {
   const city = obj.name;
-  const country = obj.sys.country
+  const country = obj.sys.country;
+  const flagContainer = document.createElement('div');
+  flagContainer.setAttribute('id', 'flag-container')
+  getFlags(country).then((obj) => {
+    flagContainer.style.backgroundImage = `url(${obj.flag})`
+  })
   const main = document.querySelector('main');
+  const cityContainer = document.createElement('div');
+  cityContainer.classList.add('center');
+  cityContainer.setAttribute('id', 'city-container');
   const cityName = document.createElement('h1');
   cityName.setAttribute('id', 'city-name');
-  cityName.classList.add('center');
   cityName.textContent = city + ", " + country;
-  main.appendChild(cityName);
+  cityContainer.appendChild(cityName);
+  cityContainer.appendChild(flagContainer);
+  main.appendChild(cityContainer);
 };
-
-
 const setCityName = (obj) => {
   const city = obj.name;
   const country = obj.sys.country;
+  const flagContainer = document.getElementById('flag-container');
+  getFlags(country).then((obj) => {
+    flagContainer.style.backgroundImage = `url(${obj.flag})`
+  })
   const cityName = document.getElementById('city-name');
   cityName.textContent = city + ", " + country;
 };
@@ -33,14 +52,12 @@ const setDefaultWeather = (obj) => {
   let weatherInCelsius = obj.main.temp - 273.15;
   weatherInCelsius = Math.floor(weatherInCelsius);
   const main = document.querySelector('main');
-  const weatherUpdate = document.createElement('h1');
-  weatherUpdate.classList.add('center');
-  weatherUpdate.setAttribute('id', 'weather-update')
-  weatherUpdate.textContent = weatherInCelsius;
-  // const span = document.createElement('span');
-  // span.innerHTML = `&#8451;`;
-  main.appendChild(weatherUpdate);
-  // main.appendChild(span);
+  const weatherContainer = document.createElement('div');
+  weatherContainer.classList.add('center');
+  weatherContainer.setAttribute('id', 'weather-container');
+  weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
+  <h3>&#8451;</h3>`
+  main.appendChild(weatherContainer);
 };
 
 const setWeather = (obj) => {
