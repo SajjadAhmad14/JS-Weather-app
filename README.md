@@ -4,7 +4,7 @@
  User can srarch for the weather by city.
  App shows Temperature in Celsius and other conditions like minimum temperature and Cloud condition.
 
-![screenshot](./src/images/screenshot.png)
+![screenshot](./dist/images/screenshot.png)
 
 ## Set Up Project Locally
 
@@ -31,7 +31,7 @@ Run `npm install`<br>
 
 ## Live Demo
 
-<a href = '' target = 'blank'>Live Demo</a>
+<a href = 'https://friendly-ardinghelli-c6c905.netlify.app/' target = 'blank'>Live Demo</a>
 
 ## Authors
 
