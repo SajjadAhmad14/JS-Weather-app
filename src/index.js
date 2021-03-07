@@ -2,7 +2,9 @@ import {
   additionDataFefault, additionalData, processweatherData, setCityName, setDefaultCity,
   setDefaultWeather, setWeather,
 } from './weatherData';
+
 import './style.css';
+
 const form = document.querySelector('form');
 
 processweatherData().then((obj) => {
