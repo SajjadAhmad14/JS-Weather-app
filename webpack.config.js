@@ -1,7 +1,8 @@
-require('dotenv').config()
+require('dotenv').config();
 const path = require('path');
+
 module.exports = {
-  'mode': 'none',
+  mode: 'none',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -11,8 +12,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.(png|jpe?g|gif)$/i,
-        use: ["style-loader", "css-loader", { loader: 'file-loader',},],
+        type: 'asset/resource',
       },
     ],
   },

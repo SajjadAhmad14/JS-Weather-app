@@ -1,4 +1,7 @@
-import { additionDataFefault, additionalData, processweatherData, setCityName, setDefaultCity, setDefaultWeather, setWeather } from './weatherData';
+import {
+  additionDataFefault, additionalData, processweatherData, setCityName, setDefaultCity,
+  setDefaultWeather, setWeather,
+} from './weatherData';
 
 const form = document.querySelector('form');
 
