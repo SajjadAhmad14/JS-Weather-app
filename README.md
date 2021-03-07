@@ -31,7 +31,7 @@ Run `npm install`<br>
 
 ## Live Demo
 
-<a href = 'https://greenontop.netlify.app/' target = 'blank'>Green Valley</a>
+<a href = '' target = 'blank'>Live Demo</a>
 
 ## Authors
 
@@ -45,7 +45,7 @@ Run `npm install`<br>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/SajjadAhmad14/Js-Resturant-Page/issues).
+Feel free to check the [issues page](https://github.com/SajjadAhmad14/JS-Weather-app/issues).
 
 ## Show your support
 
