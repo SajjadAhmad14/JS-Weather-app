@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-  background-color: #407DE6;
+  background-color: #407de6;
   height: 100%;
   padding-left: 25%;
   padding-top: 5%;
@@ -13,7 +13,7 @@ main {
   width: 50%;
   border-radius: 20px;
   margin: auto;
-  background-color: #4C8CFC;
+  background-color: #4c8cfc;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
