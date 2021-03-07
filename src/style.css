@@ -4,23 +4,23 @@
 body {
   background-color: #407DE6;
   height: 100%;
-  padding: 10% 0;
+  padding-left: 25%;
+  padding-top: 5%;
 }
 
 main {
+  position: fixed;
   width: 50%;
-  min-height: 40vh;
   border-radius: 20px;
   margin: auto;
   background-color: #4C8CFC;
-  padding: 10% 0;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
 
 .app-branding {
-  margin-top: -100px;
   margin-bottom: 30px;
+  font-size: 30px;
 }
 
 .app-branding img {
@@ -36,6 +36,7 @@ main {
 
 #city {
   padding: 5px;
+  width: 40%;
 }
 
 #search-city {
