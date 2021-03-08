@@ -20,7 +20,9 @@ const getLocation = (e) => {
     setCityName(obj);
     setWeather(obj);
     additionalData(obj);
-  });
+  }).catch((error) => {
+    alert(error.name + ': Please Enter A Valid City Name!');
+  })
   form.reset();
 };
 
