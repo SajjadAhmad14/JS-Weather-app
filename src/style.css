@@ -81,7 +81,7 @@ main {
   height: 52px;
   background-color: #407de6;
   border-radius: 30px;
-  border: 2px solid gray;
+  border: 2px solid #00f;
 }
 
 #toggle,
@@ -97,7 +97,7 @@ main {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: gray;
+  background-color: #00f;
   top: 1px;
   left: 1px;
   transition: all 0.5s;
@@ -109,7 +109,7 @@ main {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: gray;
+  background-color: #00f;
   top: 1px;
   left: 1px;
   transition: all 0.5s;
