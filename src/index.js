@@ -1,6 +1,6 @@
 import {
   processweatherData, setCityName, setDefaultCity,
-  setDefaultWeather, setWeather
+  setDefaultWeather, setWeather,
 } from './weatherData';
 
 import './style.css';
@@ -19,8 +19,8 @@ const getLocation = (e) => {
     setCityName(obj);
     setWeather(obj);
   }).catch((error) => {
-    alert(error.name + ': Please Enter A Valid City Name!');
-  })
+    alert(`${error.name}: Please Enter A Valid City Name!`);
+  });
   form.reset();
 };
 

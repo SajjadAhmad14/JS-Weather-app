@@ -52,113 +52,35 @@ const toCelsius = (obj) => {
   let weatherInCelsius = obj.main.temp - 273.15;
   weatherInCelsius = Math.floor(weatherInCelsius);
   return weatherInCelsius;
-}
+};
 const toForenheight = (obj) => {
-  let weatherInForenheight = 9 / 5 * (obj.main.temp - 273) + 32;
+  let weatherInForenheight = (9 / 5) * (obj.main.temp - 273) + 32;
   weatherInForenheight = Math.ceil(weatherInForenheight);
-  return weatherInForenheight
-}
+  return weatherInForenheight;
+};
 
 const feelsInCelsius = (obj) => {
   let feelsLike = obj.main.feels_like - 273.15;
   feelsLike = Math.floor(feelsLike);
-  return feelsLike
-}
+  return feelsLike;
+};
 
 const feelsInForenheight = (obj) => {
-  let feelsLike = 9 / 5 * (obj.main.feels_like - 273) + 32;
+  let feelsLike = (9 / 5) * (obj.main.feels_like - 273) + 32;
   feelsLike = Math.floor(feelsLike);
-  return feelsLike
-}
+  return feelsLike;
+};
 
 const minTempCelsius = (obj) => {
   let minTempInCelsius = obj.main.temp_min - 273.15;
   minTempInCelsius = Math.floor(minTempInCelsius);
-  return minTempInCelsius
-}
-
-const minTempForenheight = (obj) => {
-  let minTempInForenheight = 9 / 5 * (obj.main.temp_min - 273) + 32;
-  minTempInForenheight = Math.floor(minTempInForenheight);
-  return minTempInForenheight;
-}
-const setDefaultWeather = (obj) => {
-  additionDataDefault(obj);
-  const weatherInCelsius = toCelsius(obj);
-  const weatherInForenheight = toForenheight(obj);
-  const feelsLikeInCelsius = feelsInCelsius(obj);
-  const feelsLikeInForenheight = feelsInForenheight(obj);
-  const minTempInCelsius = minTempCelsius(obj);
-  const minTempInForenheight = minTempForenheight(obj) 
-  const toggle = document.getElementsByClassName('toggle-2-container')[0];
-  toggle.style.display = "none";
-  const main = document.querySelector('main');
-  const weatherContainer = document.createElement('div');
-  weatherContainer.classList.add('center');
-  weatherContainer.setAttribute('id', 'weather-container');
-  weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
-  <h3>&#8451;</h3>`;
-  const feelsLikeHead = document.getElementById('feels-like');
-  const minTempHead = document.getElementById('min-temp');
-  feelsLikeHead.textContent = `Feels Like: ${feelsLikeInCelsius}C |`;
-  minTempHead.textContent = ` Min Temperature: ${minTempInCelsius}C |`;
-  const toggleSwitch = document.getElementById('switch');
-  toggleSwitch.addEventListener('click', () => {
-    if (toggleSwitch.checked) {
-      toggleSwitch.value = 'C';
-      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
-      <h3>&#8451;</h3>`;
-      feelsLikeHead.textContent = `Feels Like: ${feelsLikeInCelsius}C |`;
-      minTempHead.textContent = ` Min Temperature: ${minTempInCelsius}C |`;
-    }
-    else {
-      toggleSwitch.value = 'F';
-      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInForenheight}</h1>
-      <h3>&#8457;</h3>`;
-      feelsLikeHead.textContent = `Feels Like: ${feelsLikeInForenheight}F |`;
-      minTempHead.textContent = ` Min Temperature: ${minTempInForenheight}F |`;
-
-    }
-  });
-  main.appendChild(weatherContainer);
+  return minTempInCelsius;
 };
 
-const setWeather = (obj) => {
-  additionalData(obj)
-  let feelsLikeInCelsius = feelsInCelsius(obj);
-  let feelsLikeInForenheight = feelsInForenheight(obj);
-  let minTempInCelsius = minTempCelsius(obj);
-  let minTempInForenheight = minTempForenheight(obj);
-  const weatherInCelsius = toCelsius(obj);
-  const weatherInForenheight = toForenheight(obj);
-  const toggle = document.getElementsByClassName('toggle-container')[0];
-  const toggle2 = document.getElementsByClassName('toggle-2-container')[0];
-  toggle.style.display = "none";
-  toggle2.style.display = "block";
-  const toggleSwitch = document.getElementById('switch-2');
-  const weatherContainer = document.getElementById('weather-container');
-  const feelsLikeHead = document.getElementById('feels-like');
-  const minTempHead = document.getElementById('min-temp');
-  feelsLikeHead.textContent = `Feels Like: ${feelsLikeInCelsius}C |`;
-  minTempHead.textContent = ` Min Temperature: ${minTempInCelsius}C |`;
-  weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
-      <h3>&#8451;</h3>`;
-  toggleSwitch.addEventListener('click', () => {
-    if (toggleSwitch.checked) {
-      toggleSwitch.value = 'C';
-      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
-      <h3>&#8451;</h3>`;
-      feelsLikeHead.textContent = `Feels Like: ${feelsLikeInCelsius}C |`;
-      minTempHead.textContent = ` Min Temperature: ${minTempInCelsius}C |`;    
-    }
-    else {
-      toggleSwitch.value = 'F';
-      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInForenheight}</h1>
-      <h3>&#8457;</h3>`;
-      feelsLikeHead.textContent = `Feels Like: ${feelsLikeInForenheight}F |`;
-      minTempHead.textContent = ` Min Temperature: ${minTempInForenheight}F |`;
-    }
-  });
+const minTempForenheight = (obj) => {
+  let minTempInForenheight = (9 / 5) * (obj.main.temp_min - 273) + 32;
+  minTempInForenheight = Math.floor(minTempInForenheight);
+  return minTempInForenheight;
 };
 
 const additionDataDefault = (obj) => {
@@ -184,6 +106,45 @@ const additionDataDefault = (obj) => {
   main.appendChild(dataContainer);
 };
 
+const setDefaultWeather = (obj) => {
+  additionDataDefault(obj);
+  const weatherInCelsius = toCelsius(obj);
+  const weatherInForenheight = toForenheight(obj);
+  const feelsLikeInCelsius = feelsInCelsius(obj);
+  const feelsLikeInForenheight = feelsInForenheight(obj);
+  const minTempInCelsius = minTempCelsius(obj);
+  const minTempInForenheight = minTempForenheight(obj);
+  const toggle = document.getElementsByClassName('toggle-2-container')[0];
+  toggle.style.display = 'none';
+  const main = document.querySelector('main');
+  const weatherContainer = document.createElement('div');
+  weatherContainer.classList.add('center');
+  weatherContainer.setAttribute('id', 'weather-container');
+  weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
+  <h3>&#8451;</h3>`;
+  const feelsLikeHead = document.getElementById('feels-like');
+  const minTempHead = document.getElementById('min-temp');
+  feelsLikeHead.textContent = `Feels Like: ${feelsLikeInCelsius}C |`;
+  minTempHead.textContent = ` Min Temperature: ${minTempInCelsius}C |`;
+  const toggleSwitch = document.getElementById('switch');
+  toggleSwitch.addEventListener('click', () => {
+    if (toggleSwitch.checked) {
+      toggleSwitch.value = 'C';
+      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
+      <h3>&#8451;</h3>`;
+      feelsLikeHead.textContent = `Feels Like: ${feelsLikeInCelsius}C |`;
+      minTempHead.textContent = ` Min Temperature: ${minTempInCelsius}C |`;
+    } else {
+      toggleSwitch.value = 'F';
+      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInForenheight}</h1>
+      <h3>&#8457;</h3>`;
+      feelsLikeHead.textContent = `Feels Like: ${feelsLikeInForenheight}F |`;
+      minTempHead.textContent = ` Min Temperature: ${minTempInForenheight}F |`;
+    }
+  });
+  main.appendChild(weatherContainer);
+};
+
 const additionalData = (obj) => {
   const feelsLike = feelsInCelsius(obj);
   const minTemp = minTempCelsius(obj);
@@ -195,6 +156,44 @@ const additionalData = (obj) => {
   minTempHead.textContent = `Min Temperature: ${minTemp}C |`;
   cloudsHead.textContent = ` Clouds: ${clouds}`;
 };
+
+const setWeather = (obj) => {
+  additionalData(obj);
+  const feelsLikeInCelsius = feelsInCelsius(obj);
+  const feelsLikeInForenheight = feelsInForenheight(obj);
+  const minTempInCelsius = minTempCelsius(obj);
+  const minTempInForenheight = minTempForenheight(obj);
+  const weatherInCelsius = toCelsius(obj);
+  const weatherInForenheight = toForenheight(obj);
+  const toggle = document.getElementsByClassName('toggle-container')[0];
+  const toggle2 = document.getElementsByClassName('toggle-2-container')[0];
+  toggle.style.display = 'none';
+  toggle2.style.display = 'block';
+  const toggleSwitch = document.getElementById('switch-2');
+  const weatherContainer = document.getElementById('weather-container');
+  const feelsLikeHead = document.getElementById('feels-like');
+  const minTempHead = document.getElementById('min-temp');
+  feelsLikeHead.textContent = `Feels Like: ${feelsLikeInCelsius}C |`;
+  minTempHead.textContent = ` Min Temperature: ${minTempInCelsius}C |`;
+  weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
+      <h3>&#8451;</h3>`;
+  toggleSwitch.addEventListener('click', () => {
+    if (toggleSwitch.checked) {
+      toggleSwitch.value = 'C';
+      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
+      <h3>&#8451;</h3>`;
+      feelsLikeHead.textContent = `Feels Like: ${feelsLikeInCelsius}C |`;
+      minTempHead.textContent = ` Min Temperature: ${minTempInCelsius}C |`;
+    } else {
+      toggleSwitch.value = 'F';
+      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInForenheight}</h1>
+      <h3>&#8457;</h3>`;
+      feelsLikeHead.textContent = `Feels Like: ${feelsLikeInForenheight}F |`;
+      minTempHead.textContent = ` Min Temperature: ${minTempInForenheight}F |`;
+    }
+  });
+};
+
 export {
   processweatherData, setCityName, setDefaultCity,
   setDefaultWeather, setWeather, additionDataDefault, additionalData,
