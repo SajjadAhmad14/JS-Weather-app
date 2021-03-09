@@ -59,18 +59,37 @@ const toForenheight = (obj) => {
   return weatherInForenheight
 }
 
+const feelsInCelsius = (obj) => {
+  let feelsLike = obj.main.feels_like - 273.15;
+  feelsLike = Math.floor(feelsLike);
+  return feelsLike
+}
+
+const feelsInForenheight = (obj) => {
+  let feelsLike = 9 / 5 * (obj.main.feels_like - 273) + 32;
+  feelsLike = Math.floor(feelsLike);
+  return feelsLike
+}
+
+const minTempCelsius = (obj) => {
+  let minTempInCelsius = obj.main.temp_min - 273.15;
+  minTempInCelsius = Math.floor(minTempInCelsius);
+  return minTempInCelsius
+}
+
+const minTempForenheight = (obj) => {
+  let minTempInForenheight = 9 / 5 * (obj.main.temp_min - 273) + 32;
+  minTempInForenheight = Math.floor(minTempInForenheight);
+  return minTempInForenheight;
+}
 const setDefaultWeather = (obj) => {
   additionDataDefault(obj);
   const weatherInCelsius = toCelsius(obj);
-  let weatherInForenheight = toForenheight(obj);
-  let feelsLikeInCelsius = obj.main.feels_like - 273.15;
-  let feelsLikeInForenheight = 9 / 5 * (obj.main.feels_like - 273) + 32;
-  feelsLikeInCelsius = Math.floor(feelsLikeInCelsius);
-  feelsLikeInForenheight = Math.floor(feelsLikeInForenheight);
-  let minTempInCelsius = obj.main.temp_min - 273.15;
-  let minTempInForenheight = 9 / 5 * (obj.main.temp_min - 273) + 32;
-  minTempInCelsius = Math.floor(minTempInCelsius);
-  minTempInForenheight = Math.floor(minTempInForenheight);
+  const weatherInForenheight = toForenheight(obj);
+  const feelsLikeInCelsius = feelsInCelsius(obj);
+  const feelsLikeInForenheight = feelsInForenheight(obj);
+  const minTempInCelsius = minTempCelsius(obj);
+  const minTempInForenheight = minTempForenheight(obj) 
   const toggle = document.getElementsByClassName('toggle-2-container')[0];
   toggle.style.display = "none";
   const main = document.querySelector('main');
@@ -106,14 +125,10 @@ const setDefaultWeather = (obj) => {
 
 const setWeather = (obj) => {
   additionalData(obj)
-  let feelsLikeInCelsius = obj.main.feels_like - 273.15;
-  let feelsLikeInForenheight = 9 / 5 * (obj.main.feels_like - 273) + 32;
-  feelsLikeInCelsius = Math.floor(feelsLikeInCelsius);
-  feelsLikeInForenheight = Math.floor(feelsLikeInForenheight);
-  let minTempInCelsius = obj.main.temp_min - 273.15;
-  let minTempInForenheight = 9 / 5 * (obj.main.temp_min - 273) + 32;
-  minTempInCelsius = Math.floor(minTempInCelsius);
-  minTempInForenheight = Math.floor(minTempInForenheight);
+  let feelsLikeInCelsius = feelsInCelsius(obj);
+  let feelsLikeInForenheight = feelsInForenheight(obj);
+  let minTempInCelsius = minTempCelsius(obj);
+  let minTempInForenheight = minTempForenheight(obj);
   const weatherInCelsius = toCelsius(obj);
   const weatherInForenheight = toForenheight(obj);
   const toggle = document.getElementsByClassName('toggle-container')[0];
@@ -147,10 +162,8 @@ const setWeather = (obj) => {
 };
 
 const additionDataDefault = (obj) => {
-  let feelsLike = obj.main.feels_like - 273.15;
-  feelsLike = Math.floor(feelsLike);
-  let minTemp = obj.main.temp_min - 273.15;
-  minTemp = Math.floor(minTemp);
+  const feelsLike = feelsInCelsius(obj);
+  const minTemp = minTempCelsius(obj);
   const clouds = obj.weather[0].description;
   const main = document.querySelector('main');
   const dataContainer = document.createElement('div');
@@ -172,10 +185,8 @@ const additionDataDefault = (obj) => {
 };
 
 const additionalData = (obj) => {
-  let feelsLike = obj.main.feels_like - 273.15;
-  feelsLike = Math.floor(feelsLike);
-  let minTemp = obj.main.temp_min - 273.15;
-  minTemp = Math.floor(minTemp);
+  const feelsLike = feelsInCelsius(obj);
+  const minTemp = minTempCelsius(obj);
   const clouds = obj.weather[0].description;
   const feelsLikeHead = document.getElementById('feels-like');
   const minTempHead = document.getElementById('min-temp');

@@ -1,6 +1,6 @@
 import {
   processweatherData, setCityName, setDefaultCity,
-  setDefaultWeather, setWeather,
+  setDefaultWeather, setWeather
 } from './weatherData';
 
 import './style.css';
