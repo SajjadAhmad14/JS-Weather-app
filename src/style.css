@@ -73,7 +73,7 @@ main {
   margin-top: 30px;
 }
 
-.toggle { 
+.toggle, .toggle-2 { 
   position : relative ; 
   display : inline-block; 
   width : 100px; 
@@ -95,7 +95,18 @@ main {
   background-color: gray; 
   top: 1px;  
   left: 1px; 
-  transition:  all 0.5s; 
+  transition: all 0.5s; 
+} 
+.toggle-2:after { 
+  content: ''; 
+  position: absolute; 
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  background-color: gray; 
+  top: 1px;  
+  left: 1px; 
+  transition: all 0.5s; 
 } 
       
 p { 
@@ -106,18 +117,25 @@ p {
 .checkbox:checked + .toggle::after { 
   left : 49px;  
 } 
+
+.checkbox-2:checked + .toggle-2::after { 
+  left : 49px;  
+}
       
 .checkbox:checked + .toggle { 
   background-color: #4c8cfc; 
 } 
-      
-.checkbox {  
+
+.checkbox-2:checked + .toggle-2 { 
+  background-color: #4c8cfc; 
+} 
+
+.checkbox, .checkbox-2 {  
   display : none; 
 } 
 
-.toggle-container{
+.toggle-2-container, .toggle-container{
   position: relative;
   bottom: -350px;
   right: -270px;
 }
-

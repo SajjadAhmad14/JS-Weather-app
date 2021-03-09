@@ -48,23 +48,67 @@ const setCityName = (obj) => {
   cityName.textContent = `${city}, ${country}`;
 };
 
-const setDefaultWeather = (obj) => {
+const toCelsius = (obj) => {
   let weatherInCelsius = obj.main.temp - 273.15;
   weatherInCelsius = Math.floor(weatherInCelsius);
+  return weatherInCelsius;
+}
+const toForenheight = (obj) => {
+  let weatherInForenheight = 9 / 5 * (obj.main.temp - 273) + 32;
+  weatherInForenheight = Math.ceil(weatherInForenheight);
+  return weatherInForenheight
+}
+
+const setDefaultWeather = (obj) => {
+  const weatherInCelsius = toCelsius(obj);
+  let weatherInForenheight = toForenheight(obj);
+  const toggle = document.getElementsByClassName('toggle-2-container')[0];
+  toggle.style.display = "none";
   const main = document.querySelector('main');
   const weatherContainer = document.createElement('div');
   weatherContainer.classList.add('center');
   weatherContainer.setAttribute('id', 'weather-container');
   weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
-  <h3>&#8451;</h3>`;
+      <h3>&#8451;</h3>`;
+  const toggleSwitch = document.getElementById('switch');
+  toggleSwitch.addEventListener('click', () => {
+    if (toggleSwitch.checked) {
+      toggleSwitch.value = 'C';
+      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
+      <h3>&#8451;</h3>`;
+    }
+    else {
+      toggleSwitch.value = 'F';
+      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInForenheight}</h1>
+      <h3>&#8457;</h3>`;
+    }
+  });
   main.appendChild(weatherContainer);
 };
 
 const setWeather = (obj) => {
-  let weatherInCelsius = obj.main.temp - 273.15;
-  weatherInCelsius = Math.floor(weatherInCelsius);
-  const weatherUpdate = document.getElementById('weather-update');
-  weatherUpdate.textContent = weatherInCelsius;
+  const weatherInCelsius = toCelsius(obj);
+  const weatherInForenheight = toForenheight(obj);
+  const toggle = document.getElementsByClassName('toggle-container')[0];
+  const toggle2 = document.getElementsByClassName('toggle-2-container')[0];
+  toggle.style.display = "none";
+  toggle2.style.display = "block";
+  const toggleSwitch = document.getElementById('switch-2');
+  const weatherContainer = document.getElementById('weather-container');
+  weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
+      <h3>&#8451;</h3>`;
+  toggleSwitch.addEventListener('click', () => {
+    if (toggleSwitch.checked) {
+      toggleSwitch.value = 'C';
+      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInCelsius}</h1>
+      <h3>&#8451;</h3>`;
+    }
+    else {
+      toggleSwitch.value = 'F';
+      weatherContainer.innerHTML = `<h1 id = 'weather-update'>${weatherInForenheight}</h1>
+      <h3>&#8457;</h3>`;
+    }
+  });
 };
 
 const additionDataFefault = (obj) => {

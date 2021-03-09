@@ -27,14 +27,3 @@ const getLocation = (e) => {
 };
 
 form.addEventListener('submit', getLocation);
-
-  const check = document.getElementsByClassName('checkbox')[0];
-  check.addEventListener('click', () => {
-    if(check.value == 'F') {
-      check.value = 'C';
-    }
-    else {
-      check.value = 'F';
-    }
-    console.log(check.value)
-  })
