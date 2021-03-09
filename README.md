@@ -3,6 +3,7 @@
 > This repository contains source of a Weather app built using Javascript and API from <a href = 'https://openweathermap.org/'>OpenWeather API</a>.
  User can srarch for the weather by city.
  App shows Temperature in Celsius and other conditions like minimum temperature and Cloud condition.
+ User can see temperature in both Forenheight and Celsius Degrees.
 
 ![screenshot](./dist/images/screenshot.png)
 
